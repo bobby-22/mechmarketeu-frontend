@@ -1,7 +1,7 @@
 <template>
     <div
         class="dropdown is-hoverable"
-        v-on:click="dropdownBoolean = !dropdownBoolean"
+        v-on:click="openDropdown"
         v-bind:class="{ 'is-active': dropdownBoolean }"
     >
         <div class="dropdown-trigger">
@@ -122,6 +122,11 @@ export default {
             dropdownBoolean: false,
         };
     },
+    methods: {
+        openDropdown() {
+            this.dropdownBoolean = !this.dropdownBoolean
+        }
+    }
 };
 </script>
 
