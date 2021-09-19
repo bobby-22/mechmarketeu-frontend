@@ -1,7 +1,7 @@
 <template>
     <div
         class="dropdown is-hoverable"
-        v-on:click="dropdownBoolean = !dropdownBoolean"
+        v-on:click="!dropdownBoolean"
         v-bind:class="{ 'is-active': dropdownBoolean }"
     >
         <div class="dropdown-trigger">
@@ -13,7 +13,6 @@
             <router-link
                 class="dropdown-item"
                 id="first"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Cables', page: 1 },
@@ -32,7 +31,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Deskmats', page: 1 },
@@ -42,7 +40,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Keyboards', page: 1 },
@@ -52,7 +49,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Keycaps', page: 1 },
@@ -62,7 +58,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Others', page: 1 },
@@ -72,7 +67,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'PCBs', page: 1 },
@@ -82,7 +76,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Plates', page: 1 },
@@ -92,7 +85,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Switches', page: 1 },
@@ -102,7 +94,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 v-bind:to="{
                     name: 'Category',
                     params: { category: 'Travelling-Cases', page: 1 },
@@ -112,7 +103,6 @@
             <hr class="dropdown-divider" />
             <router-link
                 class="dropdown-item"
-                v-on:click="dropdownBoolean = false"
                 id="last"
                 v-bind:to="{
                     name: 'Category',
@@ -127,8 +117,10 @@
 <script>
 export default {
     name: "NavbarDropdown",
-    props: {
-        dropdownBoolean: false,
+    data() {
+        return {
+            dropdownBoolean: false,
+        };
     },
 };
 </script>
