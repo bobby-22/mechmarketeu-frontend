@@ -3,7 +3,14 @@
         <h1 class="title" id="main-title">Welcome to MechMarketEU</h1>
         <div class="categories">
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/cables.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Cables', page: 1 },
+                    }"
+                >
+                    <img src="https://d25efl8y6peufe.cloudfront.net/cables.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -17,7 +24,14 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/cases.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Cases', page: 1 },
+                    }"
+                >
+                    <img src="https://d25efl8y6peufe.cloudfront.net/cases.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -31,7 +45,15 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/deskmats.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Deskmats', page: 1 },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/deskmats.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -45,9 +67,15 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img
-                    src="https://d25efl8y6peufe.cloudfront.net/keyboards.jpg"
-                />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Keyboards', page: 1 },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/keyboards.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -61,7 +89,15 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/keycaps.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Keycaps', page: 1 },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/keycaps.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -75,7 +111,14 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/others.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Others', page: 1 },
+                    }"
+                >
+                    <img src="https://d25efl8y6peufe.cloudfront.net/others.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -89,7 +132,14 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/pcbs.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'PCBs', page: 1 },
+                    }"
+                >
+                    <img src="https://d25efl8y6peufe.cloudfront.net/pcbs.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -103,7 +153,14 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/pcbs.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Plates', page: 1 },
+                    }"
+                >
+                    <img src="https://d25efl8y6peufe.cloudfront.net/pcbs.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -117,7 +174,15 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img src="https://d25efl8y6peufe.cloudfront.net/switches.jpg" />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Switches', page: 1 },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/switches.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -131,9 +196,18 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img
-                    src="https://d25efl8y6peufe.cloudfront.net/travelling-cases.jpg"
-                />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: {
+                            category: 'Travelling-cases',
+                            page: 1,
+                        },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/travelling-cases.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
@@ -150,9 +224,15 @@
                 </div>
             </div>
             <div class="grid-item">
-                <img
-                    src="https://d25efl8y6peufe.cloudfront.net/wrist-rests.jpg"
-                />
+                <router-link
+                    v-bind:to="{
+                        name: 'Category',
+                        params: { category: 'Wrist-rests', page: 1 },
+                    }"
+                >
+                    <img
+                        src="https://d25efl8y6peufe.cloudfront.net/wrist-rests.jpg"
+                /></router-link>
                 <div class="title" id="title">
                     <h1>
                         <router-link
