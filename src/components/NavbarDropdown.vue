@@ -1,5 +1,9 @@
 <template>
-    <div class="dropdown is-hoverable">
+    <div
+        class="dropdown is-hoverable"
+        v-on:click="dropdownBoolean = !dropdownBoolean"
+        v-bind:class="{ 'is-active': dropdownBoolean }"
+    >
         <div class="dropdown-trigger">
             <span>Category</span>
             <i class="fas fa-angle-down"></i>
@@ -113,6 +117,9 @@
 <script>
 export default {
     name: "NavbarDropdown",
+    props: {
+        dropdownBoolean: false,
+    },
 };
 </script>
 
