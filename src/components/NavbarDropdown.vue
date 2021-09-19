@@ -2,6 +2,7 @@
     <div
         class="dropdown is-hoverable"
         v-bind:class="{ 'is-active': dropdownBoolean }"
+        v-on:click="openDropdown"
     >
         <div class="dropdown-trigger" v-on:click="openDropdown">
             <span>Category</span>
