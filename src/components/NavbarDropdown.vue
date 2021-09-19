@@ -2,14 +2,13 @@
     <div
         class="dropdown is-hoverable"
         v-bind:class="{ 'is-active': dropdownBoolean }"
-        v-on:click="openDropdown"
     >
         <div class="dropdown-trigger" v-on:click="openDropdown">
             <span>Category</span>
             <i class="fas fa-angle-down"></i>
         </div>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" v-on:click="dropdownBoolean = false">
             <router-link
                 class="dropdown-item"
                 id="first"
