@@ -142,6 +142,7 @@ export default {
     border-radius: 10px;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
     background: white;
+    min-width: auto;
     margin-top: 5px;
     padding: 0px;
 }
@@ -167,10 +168,5 @@ a:visited,
 a:active,
 a:hover {
     color: inherit;
-}
-@media (max-width: 430px) {
-    .dropdown-menu {
-        min-width: auto;
-    }
 }
 </style>
