@@ -3,7 +3,7 @@
         <div class="details" v-for="detail in details" :key="detail.id">
             <div class="details-left">
                 <div class="detail-thumbnail">
-                    <img v-bind:src="photo" />
+                    <img v-bind:src="gallery[index]" />
                     <div class="gallery-control">
                         <i
                             class="fas fa-chevron-left"
@@ -20,9 +20,9 @@
                 <div class="detail-images">
                     <img
                         id="image"
-                        v-for="photo in gallery"
-                        :key="photo.id"
-                        v-bind:src="photo"
+                        v-for="image in gallery"
+                        :key="image.id"
+                        v-bind:src="image"
                     />
                 </div>
             </div>
@@ -181,7 +181,7 @@ export default {
             details: [],
             images: [],
             gallery: [],
-            photo: null,
+            index: 0,
             product: null,
             authenticated: this.$store.state.authenticated,
             email: null,
@@ -207,7 +207,6 @@ export default {
                     this.details = detailsResponse.data;
                     this.product = this.details[0];
                     this.gallery.push(this.product.thumbnail);
-                    this.photo = this.gallery[0];
                     document.title = `${this.product.title} | MechMarketEU`;
                     this.getImages();
                 })
@@ -283,17 +282,17 @@ export default {
                 });
         },
         previousPhoto() {
-            let currentPosition = this.gallery.indexOf(this.photo);
-            this.photo = this.gallery[currentPosition - 1];
-            if (this.photo === undefined) {
-                this.photo = this.gallery[this.gallery.length - 1];
+            if (this.index == 0) {
+                this.index = this.gallery.length - 1;
+            } else {
+                this.index -= 1;
             }
         },
         nextPhoto() {
-            let currentPosition = this.gallery.indexOf(this.photo);
-            this.photo = this.gallery[currentPosition + 1];
-            if (this.photo === undefined) {
-                this.photo = this.gallery[0];
+            if (this.index == this.gallery.length - 1) {
+                this.index = 0;
+            } else {
+                this.index += 1;
             }
         },
     },
