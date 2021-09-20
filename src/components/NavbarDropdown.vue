@@ -122,6 +122,17 @@ export default {
         openDropdown() {
             this.dropdownBoolean = !this.dropdownBoolean;
         },
+        closeDropdown(event) {
+            if (!this.$el.contains(event.target)) {
+                this.dropdownBoolean = false;
+            }
+        },
+    },
+    mounted() {
+        document.addEventListener("click", this.closeDropdown);
+    },
+    beforeDestroy() {
+        document.removeEventListener("click", this.closeDropdown);
     },
 };
 </script>
@@ -132,6 +143,9 @@ export default {
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
     background: white;
     padding: 0px;
+}
+.dropdown-trigger {
+    cursor: pointer;
 }
 .dropdown-divider {
     margin: 0px;
