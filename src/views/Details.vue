@@ -394,7 +394,7 @@ export default {
     height: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 5px;
     background: #c2c9d2;
 }
 @media (max-width: 1024px) {

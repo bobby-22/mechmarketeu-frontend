@@ -145,8 +145,11 @@
                                 {{ thumbnailCloud }}
                             </span>
                         </span>
-                        <span class="file-name" v-else>
-                            {{ thumbnail.name }}
+                        <span class="file-name" id="thumbnail" v-else>
+                            <img v-bind:src="thumbnailPreview" />
+                            <span class="thumbnail-name">
+                                {{ thumbnail.name }}
+                            </span>
                         </span>
                     </label>
                 </div>
@@ -188,15 +191,18 @@
                     <span
                         class="file-name"
                         id="file-name"
-                        v-for="image in images"
+                        v-for="(image, index) in images"
                         :key="image.id"
                     >
+                        <img v-bind:src="imagePreviews[index]" />
                         <span class="image-name">
                             {{ image.name }}
                         </span>
                         <a
                             class="image-delete"
-                            v-on:click="deleteImageLocal(image)"
+                            v-on:click="
+                                deleteImageLocal(image, imagePreviews[index])
+                            "
                             ><i class="far fa-times-circle"></i
                         ></a>
                     </span>
@@ -239,6 +245,8 @@ export default {
             thumbnailCloud: this.$store.state.productData.thumbnail,
             images: [],
             imagesCloud: this.$store.state.imagesCloud,
+            thumbnailPreview: null,
+            imagePreviews: [],
 
             errors: [],
             errorTitleBoolean: false,
@@ -303,7 +311,8 @@ export default {
                 this.errorMessageDescription = "Description cannot be empty";
             } else if (this.description.length > 1000) {
                 this.errorDescriptionBoolean = true;
-                this.errorMessageDescription = "Description cannot be longer than 1000 characters";
+                this.errorMessageDescription =
+                    "Description cannot be longer than 1000 characters";
             } else {
                 this.errorDescriptionBoolean = false;
             }
@@ -322,14 +331,25 @@ export default {
         },
         uploadThumbnail(event) {
             this.thumbnail = event.target.files[0];
+            this.thumbnailPreview = URL.createObjectURL(this.thumbnail);
         },
         uploadImages(event) {
             this.images = event.target.files;
+            let previews = [];
+            for (let i = 0; i < this.images.length; i++) {
+                previews.push(URL.createObjectURL(this.images[i]));
+            }
+            this.imagePreviews = previews;
         },
-        deleteImageLocal(image) {
+        deleteImageLocal(image, preview) {
             this.images = Object.values(this.images).filter((i) => {
                 return i.name !== image.name;
             });
+            this.imagePreviews = Object.values(this.imagePreviews).filter(
+                (i) => {
+                    return i != preview;
+                }
+            );
         },
         deleteImageCloud(image) {
             this.imagesCloud = Object.values(this.imagesCloud).filter((i) => {

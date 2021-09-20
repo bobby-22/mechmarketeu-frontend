@@ -142,6 +142,7 @@ export default {
     border-radius: 10px;
     box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.2);
     background: white;
+    margin-top: 5px;
     padding: 0px;
 }
 .dropdown-trigger {

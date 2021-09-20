@@ -110,7 +110,6 @@
 <script>
 import NavbarDropdown from "./NavbarDropdown";
 import { toast } from "bulma-toast";
-import { djangoAPI } from "../axios";
 export default {
     name: "Navbar",
     components: {
@@ -187,10 +186,6 @@ export default {
     justify-content: center;
     align-items: center;
 }
-.input,
-.button.is-danger {
-    border-radius: 15px;
-}
 #profile,
 #profile:hover {
     color: black;
@@ -202,11 +197,12 @@ export default {
     &.is-warning {
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 0px;
-        border-top-left-radius: 0px;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        margin-left: 6px;
     }
     &.is-info {
-        border-radius: 0px;
+        border-radius: 5px;
     }
 }
 .fas.fa-bookmark {
@@ -242,9 +238,10 @@ export default {
         border-top-left-radius: 0px;
         border-bottom-left-radius: 0px;
     }
-    .button.is-warning {
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
+    .button {
+        &.is-warning {
+            border-radius: 5px;
+        }
     }
 }
 </style>

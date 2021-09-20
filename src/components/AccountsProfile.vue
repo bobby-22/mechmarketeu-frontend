@@ -188,7 +188,7 @@ export default {
         height: 100%;
         border-bottom-right-radius: 0px;
         border-bottom-left-radius: 0px;
-        border-top-right-radius: 5px;
+        border-top-right-radius: 10px;
     }
     .split {
         flex-direction: row;

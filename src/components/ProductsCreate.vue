@@ -138,8 +138,11 @@
                         <span class="file-name" v-if="!thumbnail">
                             No thumbnail uploaded
                         </span>
-                        <span class="file-name" v-else>
-                            {{ thumbnail.name }}
+                        <span class="file-name" id="thumbnail" v-else>
+                            <img v-bind:src="thumbnailPreview" />
+                            <span class="thumbnail-name">
+                                {{ thumbnail.name }}
+                            </span>
                         </span>
                     </label>
                 </div>
@@ -169,13 +172,18 @@
                     <span
                         class="file-name"
                         id="file-name"
-                        v-for="image in images"
+                        v-for="(image, index) in images"
                         :key="image.id"
                     >
+                        <img v-bind:src="imagePreviews[index]" />
                         <span class="image-name">
                             {{ image.name }}
                         </span>
-                        <a class="image-delete" v-on:click="deleteImage(image)"
+                        <a
+                            class="image-delete"
+                            v-on:click="
+                                deleteImage(image, imagePreviews[index])
+                            "
                             ><i class="far fa-times-circle"></i
                         ></a>
                     </span>
@@ -215,6 +223,8 @@ export default {
             thumbnail: null,
             images: [],
             post_id: null,
+            thumbnailPreview: null,
+            imagePreviews: [],
 
             errors: [],
             errorTitleBoolean: false,
@@ -307,14 +317,25 @@ export default {
         },
         uploadThumbnail(event) {
             this.thumbnail = event.target.files[0];
+            this.thumbnailPreview = URL.createObjectURL(this.thumbnail);
         },
         uploadImages(event) {
             this.images = event.target.files;
+            let previews = [];
+            for (let i = 0; i < this.images.length; i++) {
+                previews.push(URL.createObjectURL(this.images[i]));
+            }
+            this.imagePreviews = previews;
         },
-        deleteImage(image) {
+        deleteImage(image, preview) {
             this.images = Object.values(this.images).filter((i) => {
                 return i.name !== image.name;
             });
+            this.imagePreviews = Object.values(this.imagePreviews).filter(
+                (i) => {
+                    return i != preview;
+                }
+            );
         },
         submitNewProduct() {
             if (this.images.length > 10) {
@@ -475,6 +496,13 @@ select {
 .file-name {
     text-align: center;
 }
+#thumbnail {
+    display: flex;
+    padding-left: 0px;
+}
+img {
+    height: inherit;
+}
 #file-name {
     display: flex;
     justify-content: flex-start;
@@ -486,12 +514,17 @@ select {
     display: flex;
     flex-direction: column;
 }
+.thumbnail-name,
 .image-name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin-left: 30px;
     margin-right: 30px;
+}
+.thumbnail-name {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 .image-delete {
     position: absolute;
