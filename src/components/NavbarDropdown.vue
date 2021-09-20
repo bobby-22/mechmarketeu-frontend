@@ -168,4 +168,9 @@ a:active,
 a:hover {
     color: inherit;
 }
+@media (max-width: 430px) {
+    .dropdown-menu {
+        min-width: auto;
+    }
+}
 </style>
