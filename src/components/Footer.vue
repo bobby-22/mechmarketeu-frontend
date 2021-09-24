@@ -93,10 +93,6 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <router-link class="terms" to="/terms"
-                >Terms and Conditions</router-link
-            >
-            <span>&copy; 2021 mechmarket.eu</span>
             <div>
                 Icons made by
                 <a href="https://flat-icons.com/" title="Flat Icons"
@@ -107,6 +103,11 @@
                     >www.flaticon.com</a
                 >
             </div>
+            <span>Home page images taken from www.unsplash.com</span>
+            <router-link class="terms" to="/terms"
+                >Terms and Conditions</router-link
+            >
+            <span>&copy; 2021 mechmarket.eu</span>
         </div>
     </footer>
 </template>

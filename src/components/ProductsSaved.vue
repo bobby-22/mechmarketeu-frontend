@@ -18,7 +18,11 @@
                         {{ product.title }}
                     </router-link>
                     <span class="actions">
-                        <a class="fas fa-bookmark" id="unsave" v-on:click="unsaveProduct()"></a>
+                        <a
+                            class="fas fa-bookmark"
+                            id="unsave"
+                            v-on:click="unsaveProduct()"
+                        ></a>
                     </span>
                 </span>
             </div>

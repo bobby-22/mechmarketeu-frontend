@@ -54,6 +54,7 @@
                             type="text"
                             v-model="country"
                             v-on:input="countCharacters()"
+                            disabled
                         />
                         <span class="icon is-small is-left">
                             <i class="fas fa-map-marker-alt"></i>

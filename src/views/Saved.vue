@@ -2,13 +2,14 @@
     <div class="container">
         <h1 class="title">Saved posts</h1>
         <p v-if="!this.savedProducts.length">No posts saved...</p>
-
-        <ProductsSaved
-            v-for="product in savedProducts"
-            v-bind:key="product.id"
-            v-bind:product="product"
-            v-on:unsaveProduct="unsaveProduct"
-        />
+        <div class="saved-posts">
+            <ProductsSaved
+                v-for="product in savedProducts"
+                v-bind:key="product.id"
+                v-bind:product="product"
+                v-on:unsaveProduct="unsaveProduct"
+            />
+        </div>
     </div>
 </template>
 
@@ -63,5 +64,9 @@ export default {
     border-bottom: 1px solid #ededed;
     padding-bottom: 15px;
     margin-bottom: 20px;
+}
+.saved-posts {
+    flex-direction: column-reverse;
+    display: flex;
 }
 </style>
