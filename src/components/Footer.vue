@@ -103,7 +103,12 @@
                     >www.flaticon.com</a
                 >
             </div>
-            <span>Home page images taken from www.unsplash.com</span>
+            <span
+                >Home page images taken from
+                <a href="https://www.unsplash.com" title="Unsplash"
+                    >www.unsplash.com</a
+                ></span
+            >
             <router-link class="terms" to="/terms"
                 >Terms and Conditions</router-link
             >

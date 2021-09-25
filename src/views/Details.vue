@@ -17,12 +17,18 @@
                         ></i>
                     </div>
                 </div>
-                <div class="detail-images">
+                <div class="detail-images" id="detail-images">
                     <img
                         id="image"
-                        v-for="image in gallery"
+                        v-for="(image, index) in gallery"
                         :key="image.id"
                         v-bind:src="image"
+                        v-on:click="selectPhoto(index)"
+                        v-bind:style="[
+                            this.index == index
+                                ? { opacity: '1' }
+                                : { opacity: '0.5' },
+                        ]"
                     />
                 </div>
             </div>
@@ -287,12 +293,54 @@ export default {
             } else {
                 this.index -= 1;
             }
+            for (let i = 0; i < this.gallery.length; i++) {
+                if (this.index >= i - 1) {
+                    document.getElementById("detail-images").scrollLeft += 150;
+                } else if (this.index < i - 1) {
+                    document.getElementById("detail-images").scrollLeft -= 150;
+                }
+            }
+            if (this.index == this.gallery.length - 1) {
+                document.getElementById("detail-images").scrollLeft += 500;
+            }
+            if (this.index == 0) {
+                document.getElementById("detail-images").scrollLeft -= 500;
+            }
         },
         nextPhoto() {
             if (this.index == this.gallery.length - 1) {
                 this.index = 0;
             } else {
                 this.index += 1;
+            }
+            for (let i = 0; i < this.gallery.length; i++) {
+                if (this.index >= i - 1) {
+                    document.getElementById("detail-images").scrollLeft += 150;
+                } else if (this.index < i - 1) {
+                    document.getElementById("detail-images").scrollLeft -= 150;
+                }
+            }
+            if (this.index == this.gallery.length - 1) {
+                document.getElementById("detail-images").scrollLeft += 500;
+            }
+            if (this.index == 0) {
+                document.getElementById("detail-images").scrollLeft -= 500;
+            }
+        },
+        selectPhoto(index) {
+            this.index = index;
+            for (let i = 0; i < this.gallery.length; i++) {
+                if (index >= i - 1) {
+                    document.getElementById("detail-images").scrollLeft += 150;
+                } else if (index < i - 1) {
+                    document.getElementById("detail-images").scrollLeft -= 150;
+                }
+            }
+            if (index == this.gallery.length - 1) {
+                document.getElementById("detail-images").scrollLeft += 500;
+            }
+            if (index == 0) {
+                document.getElementById("detail-images").scrollLeft -= 500;
             }
         },
     },
@@ -359,6 +407,7 @@ export default {
     column-gap: 5px;
 }
 #image {
+    cursor: pointer;
     height: 100px;
 }
 .details-right {
