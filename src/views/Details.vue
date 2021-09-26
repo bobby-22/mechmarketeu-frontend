@@ -330,13 +330,13 @@ export default {
         selectPhoto(index) {
             this.index = index;
             for (let i = 0; i < this.gallery.length; i++) {
-                if (index >= i - 1) {
+                if (index >= i - 2) {
                     document.getElementById("detail-images").scrollLeft += 150;
-                } else if (index < i - 1) {
+                } else if (index < i - 2) {
                     document.getElementById("detail-images").scrollLeft -= 150;
                 }
             }
-            if (index == this.gallery.length - 1) {
+            if (index == this.gallery.length - 2) {
                 document.getElementById("detail-images").scrollLeft += 500;
             }
             if (index == 0) {

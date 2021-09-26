@@ -217,6 +217,9 @@ a:active,
 a:hover {
     color: inherit;
 }
+.fas.fa-at {
+    cursor: pointer;
+}
 .modal-content {
     background: white;
     border-radius: 10px;
