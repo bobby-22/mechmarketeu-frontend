@@ -1,7 +1,10 @@
 <template>
     <div class="container">
         <div class="title-container">
-            <h1 class="title" id="title-header">{{ username }}'s posts</h1>
+            <h1 class="title" style="" id="title-header">
+                {{ username }}'s posts
+                <p class="date-joined">User created: {{ dateRegistered }}</p>
+            </h1>
             <div class="reviews">
                 <div class="modalActivate">
                     <button
@@ -204,6 +207,7 @@ export default {
             product: null,
             reviews: [],
             username: this.$route.params.user,
+            dateRegistered: null,
             authenticated: this.$store.state.authenticated,
             rating: null,
             description: null,
@@ -227,6 +231,20 @@ export default {
                     for (let i = 0; i < this.products.slice(0, 1).length; i++) {
                         this.product = this.products[i];
                     }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+        getUserInformation() {
+            djangoAPI
+                .get(
+                    `/api/v1/accounts/user/${this.$route.params.user}/date_joined`
+                )
+                .then((userInformationResponse) => {
+                    console.log(userInformationResponse);
+                    this.dateRegistered =
+                        userInformationResponse.data[0].date_joined;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -303,6 +321,7 @@ export default {
     },
     created() {
         this.getUserProducts();
+        this.getUserInformation();
         this.getUserReviews();
         this.setTitle();
     },
@@ -335,6 +354,12 @@ export default {
 }
 #title-header {
     margin-bottom: 0px;
+}
+.date-joined {
+    font-size: 18px;
+    font-weight: 400;
+    color: #616161;
+    margin-top: 5px;
 }
 .reviews {
     display: flex;
