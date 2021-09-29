@@ -356,7 +356,7 @@ export default {
     margin-bottom: 0px;
 }
 .date-joined {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 400;
     color: #616161;
     margin-top: 5px;
