@@ -76,6 +76,8 @@ export default {
                 })
                 .then((loginResponse) => {
                     console.log(loginResponse.headers);
+                    console.log(loginResponse.data);
+                    console.log(loginResponse.data.user);
                     // this.$store.commit(
                     //     "saveTokenAccessState",
                     //     loginResponse.data.access
