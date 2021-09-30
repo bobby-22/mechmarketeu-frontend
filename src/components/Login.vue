@@ -76,19 +76,19 @@ export default {
                 })
                 .then((loginResponse) => {
                     console.log(loginResponse);
-                    this.$store.commit(
-                        "saveTokenAccessState",
-                        loginResponse.data.access
-                    );
-                    this.$store.commit(
-                        "saveTokenRefreshState",
-                        loginResponse.data.refresh
-                    );
-                    this.$store.commit(
-                        "saveCurrentUserState",
-                        loginResponse.data.username
-                    );
-                    this.$store.commit("authenticate");
+                    // this.$store.commit(
+                    //     "saveTokenAccessState",
+                    //     loginResponse.data.access
+                    // );
+                    // this.$store.commit(
+                    //     "saveTokenRefreshState",
+                    //     loginResponse.data.refresh
+                    // );
+                    // this.$store.commit(
+                    //     "saveCurrentUserState",
+                    //     loginResponse.data.username
+                    // );
+                    // this.$store.commit("authenticate");
                     this.$router.push("/");
                     toast({
                         message: "You have been successfully logged in!",
