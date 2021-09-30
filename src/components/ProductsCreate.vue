@@ -320,7 +320,7 @@ export default {
             this.thumbnailPreview = URL.createObjectURL(this.thumbnail);
         },
         uploadImages(event) {
-            this.images = event.target.files;
+            this.images = [...this.images, ...event.target.files];
             let previews = [];
             for (let i = 0; i < this.images.length; i++) {
                 previews.push(URL.createObjectURL(this.images[i]));
