@@ -75,7 +75,7 @@ export default {
                     password: this.password,
                 })
                 .then((loginResponse) => {
-                    console.log(loginResponse);
+                    console.log(loginResponse.header);
                     // this.$store.commit(
                     //     "saveTokenAccessState",
                     //     loginResponse.data.access
@@ -89,7 +89,7 @@ export default {
                     //     loginResponse.data.username
                     // );
                     // this.$store.commit("authenticate");
-                    this.$router.push("/");
+                    // this.$router.push("/");
                     toast({
                         message: "You have been successfully logged in!",
                         type: "is-success",
