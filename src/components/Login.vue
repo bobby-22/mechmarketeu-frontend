@@ -75,7 +75,7 @@ export default {
                     password: this.password,
                 })
                 .then((loginResponse) => {
-                    console.log(loginResponse.header);
+                    console.log(loginResponse);
                     // this.$store.commit(
                     //     "saveTokenAccessState",
                     //     loginResponse.data.access
