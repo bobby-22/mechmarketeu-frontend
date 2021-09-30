@@ -69,11 +69,11 @@ export default {
     methods: {
         loginUser() {
             this.submittedBoolean = true;
-            djangoAPI({
-                method: "POST",
-                url: "/api/v1/accounts/login/",
-                withCredentials: true,
-            })
+            djangoAPI
+                .post("/api/v1/accounts/login/", {
+                    username: this.username,
+                    password: this.password,
+                })
                 .then((loginResponse) => {
                     console.log(loginResponse.headers);
                     // this.$store.commit(
