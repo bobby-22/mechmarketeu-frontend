@@ -19,9 +19,17 @@ export default {
     },
     methods: {
         refreshTokens() {
-            let tokenRefresh = this.$store.state.tokenRefresh;
+            // let tokenRefresh = this.$store.state.tokenRefresh;
             djangoAPI
-                .post("/api/v1/accounts/refresh/", { refresh: tokenRefresh })
+                .post(
+                    "/api/v1/accounts/token/refresh/",
+                    {
+                        refresh_token: this.$store.state.tokenRefresh,
+                    },
+                    {
+                        withCredentials: true,
+                    }
+                )
                 .then((tokensResponse) => {
                     console.log(tokensResponse);
                     this.$store.commit(
@@ -46,7 +54,7 @@ export default {
         },
     },
     beforeCreate() {
-        this.$store.commit("localStorageSavedTokens");
+        // this.$store.commit("localStorageSavedTokens");
     },
     created() {
         this.refreshTokens();
@@ -54,7 +62,7 @@ export default {
     mounted() {
         setInterval(() => {
             this.refreshTokens();
-        }, 250000);
+        }, 10000);
     },
 };
 </script>
