@@ -67,6 +67,25 @@ export default {
         };
     },
     methods: {
+        refreshTokens() {
+            djangoAPI
+                .post("/api/v1/accounts/token/refresh/", {
+                    withCredentials: true,
+                })
+                .then((tokensResponse) => {
+                    console.log(tokensResponse);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    if (
+                        error.response.status === 403 ||
+                        error.response.status === 401
+                    ) {
+                        this.$store.commit("removeCredentialsState");
+                        this.$router.push("/accounts/login");
+                    }
+                });
+        },
         loginUser() {
             this.submittedBoolean = true;
             djangoAPI
@@ -75,6 +94,7 @@ export default {
                     password: this.password,
                 })
                 .then((loginResponse) => {
+                    this.refreshTokens();
                     console.log(loginResponse);
                     // this.$store.commit(
                     //     "saveTokenAccessState",

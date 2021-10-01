@@ -21,19 +21,17 @@ export default {
         refreshTokens() {
             let tokenRefresh = this.$store.state.tokenRefresh;
             djangoAPI
-                .post("/api/v1/accounts/token/refresh/", {
-                    withCredentials: true,
-                })
+                .post("/api/v1/accounts/refresh/", { refresh: tokenRefresh })
                 .then((tokensResponse) => {
                     console.log(tokensResponse);
-                    // this.$store.commit(
-                    //     "saveTokenAccessState",
-                    //     tokensResponse.data.access
-                    // );
-                    // this.$store.commit(
-                    //     "saveTokenRefreshState",
-                    //     tokensResponse.data.refresh
-                    // );
+                    this.$store.commit(
+                        "saveTokenAccessState",
+                        tokensResponse.data.access
+                    );
+                    this.$store.commit(
+                        "saveTokenRefreshState",
+                        tokensResponse.data.refresh
+                    );
                 })
                 .catch((error) => {
                     console.log(error);
