@@ -19,16 +19,11 @@ export default {
     },
     methods: {
         refreshTokens() {
-            // let tokenRefresh = this.$store.state.tokenRefresh;
             djangoAPI
                 .post(
-                    "/api/v1/accounts/token/refresh/",
-                    {
-                        refresh_token: this.$store.state.tokenRefresh,
-                    },
-                    {
-                        withCredentials: true,
-                    }
+                    "/api/v1/accounts/token/refresh",
+                    { token_refresh: this.$store.state.tokenRefresh },
+                    { withCredentials: true }
                 )
                 .then((tokensResponse) => {
                     console.log(tokensResponse);
@@ -62,7 +57,7 @@ export default {
     mounted() {
         setInterval(() => {
             this.refreshTokens();
-        }, 10000);
+        }, 250000);
     },
 };
 </script>

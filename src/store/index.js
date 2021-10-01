@@ -97,25 +97,25 @@ export default createStore({
                 JSON.stringify(state.authenticated)
             );
         },
-        localStorageSavedTokens(state) {
-            if (localStorage.getItem("tokenAccess")) {
-                state.tokenAccess = JSON.parse(
-                    localStorage.getItem("tokenAccess")
-                );
-                state.tokenRefresh = JSON.parse(
-                    localStorage.getItem("tokenRefresh")
-                );
-            } else {
-                localStorage.setItem(
-                    "tokenAccess",
-                    JSON.stringify(state.tokenAccess)
-                );
-                localStorage.setItem(
-                    "tokenRefresh",
-                    JSON.stringify(state.tokenRefresh)
-                );
-            }
-        },
+        // localStorageSavedTokens(state) {
+        //     if (localStorage.getItem("tokenAccess")) {
+        //         state.tokenAccess = JSON.parse(
+        //             localStorage.getItem("tokenAccess")
+        //         );
+        //         state.tokenRefresh = JSON.parse(
+        //             localStorage.getItem("tokenRefresh")
+        //         );
+        //     } else {
+        //         localStorage.setItem(
+        //             "tokenAccess",
+        //             JSON.stringify(state.tokenAccess)
+        //         );
+        //         localStorage.setItem(
+        //             "tokenRefresh",
+        //             JSON.stringify(state.tokenRefresh)
+        //         );
+        //     }
+        // },
         saveTokenAccessState(state, access) {
             state.tokenAccess = access;
         },
