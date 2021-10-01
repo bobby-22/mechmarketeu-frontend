@@ -70,14 +70,21 @@ export default {
         loginUser() {
             this.submittedBoolean = true;
             djangoAPI
-                .post("/api/v1/accounts/login/", {
-                    username: this.username,
-                    password: this.password,
-                })
+                .post(
+                    "/api/v1/accounts/login/",
+                    {
+                        username: this.username,
+                        password: this.password,
+                    },
+                    { withCredentials: true },
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                            Accept: "application/json",
+                        },
+                    }
+                )
                 .then((loginResponse) => {
-                    console.log(loginResponse.headers);
-                    console.log(loginResponse.data);
-                    console.log(loginResponse.data.user);
                     // this.$store.commit(
                     //     "saveTokenAccessState",
                     //     loginResponse.data.access
