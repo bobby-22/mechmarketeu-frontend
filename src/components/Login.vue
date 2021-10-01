@@ -69,9 +69,15 @@ export default {
     methods: {
         refreshTokens() {
             djangoAPI
-                .post("/api/v1/accounts/token/refresh/", {
-                    withCredentials: true,
-                })
+                .post(
+                    "/api/v1/accounts/token/refresh/",
+                    {
+                        refresh_token: this.$store.state.tokenRefresh,
+                    },
+                    {
+                        withCredentials: true,
+                    }
+                )
                 .then((tokensResponse) => {
                     console.log(tokensResponse);
                 })
@@ -96,14 +102,14 @@ export default {
                 .then((loginResponse) => {
                     this.refreshTokens();
                     console.log(loginResponse);
-                    // this.$store.commit(
-                    //     "saveTokenAccessState",
-                    //     loginResponse.data.access_token
-                    // );
-                    // this.$store.commit(
-                    //     "saveTokenRefreshState",
-                    //     loginResponse.data.refresh_token
-                    // );
+                    this.$store.commit(
+                        "saveTokenAccessState",
+                        loginResponse.data.access_token
+                    );
+                    this.$store.commit(
+                        "saveTokenRefreshState",
+                        loginResponse.data.refresh_token
+                    );
                     this.$store.commit(
                         "saveCurrentUserState",
                         loginResponse.data.user.username
