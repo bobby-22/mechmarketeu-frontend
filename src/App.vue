@@ -29,11 +29,11 @@ export default {
                     console.log(tokensResponse);
                     this.$store.commit(
                         "saveTokenAccessState",
-                        tokensResponse.data.access
+                        tokensResponse.data.access_token
                     );
                     this.$store.commit(
                         "saveTokenRefreshState",
-                        tokensResponse.data.refresh
+                        tokensResponse.data.refresh_token
                     );
                 })
                 .catch((error) => {
