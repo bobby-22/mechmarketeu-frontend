@@ -18,6 +18,12 @@ export default {
         Footer,
     },
     methods: {
+        handler: function handler(event) {
+            localStorage.setItem(
+                "tokenRefresh",
+                JSON.stringify(this.$store.state.tokenRefresh)
+            );
+        },
         refreshTokens() {
             djangoAPI
                 .post(
@@ -52,6 +58,7 @@ export default {
         // this.$store.commit("localStorageSavedTokens");
     },
     created() {
+        document.addEventListener("beforeunload", this.handler);
         this.refreshTokens();
     },
     mounted() {
