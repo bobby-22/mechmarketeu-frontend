@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         checkAuthenticated() {
-            if (this.$store.authenticated) {
+            if (this.$store.authenticated === true) {
                 this.$router.push("/accounts/profile");
             }
         },
