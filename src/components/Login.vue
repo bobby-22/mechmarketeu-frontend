@@ -117,7 +117,7 @@ export default {
         },
     },
     created() {
-        this.checkAuthenticated()
+        this.checkAuthenticated();
         this.setTitle();
     },
 };
