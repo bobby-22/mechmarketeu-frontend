@@ -67,6 +67,11 @@ export default {
         };
     },
     methods: {
+        checkAuthenticated() {
+            if (this.$store.authenticated) {
+                this.$router.push("/accounts/profile");
+            }
+        },
         loginUser() {
             this.submittedBoolean = true;
             djangoAPI
@@ -89,7 +94,7 @@ export default {
                         loginResponse.data.user.username
                     );
                     this.$store.commit("authenticate");
-                    // this.$router.push("/");
+                    this.$router.push("/");
                     toast({
                         message: "You have been successfully logged in!",
                         type: "is-success",
@@ -112,6 +117,7 @@ export default {
         },
     },
     created() {
+        this.checkAuthenticated()
         this.setTitle();
     },
 };
