@@ -355,11 +355,16 @@ export default {
             product.append("description", this.description);
             product.append("thumbnail", this.thumbnail);
             djangoAPI
-                .post("/api/v1/products/", product, {
-                    headers: {
-                        Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                .post(
+                    "/api/v1/products/",
+                    product,
+                    {
+                        headers: {
+                            Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                        },
                     },
-                })
+                    { withCredentials: true }
+                )
                 .then((createdProductResponse) => {
                     console.log(createdProductResponse);
                     this.post_id = createdProductResponse.data.post_id;
@@ -407,11 +412,16 @@ export default {
                 images.append("images", this.images[i]);
             }
             djangoAPI
-                .post("/api/v1/images/", images, {
-                    headers: {
-                        Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                .post(
+                    "/api/v1/images/",
+                    images,
+                    {
+                        headers: {
+                            Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                        },
                     },
-                })
+                    { withCredentials: true }
+                )
                 .then((createdImagesResponse) => {
                     console.log(createdImagesResponse);
                     this.$router.push(

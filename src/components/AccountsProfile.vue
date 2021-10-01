@@ -70,11 +70,15 @@ export default {
     methods: {
         deleteProduct() {
             djangoAPI
-                .delete(`/api/v1/products/${this.product.post_id}/delete`, {
-                    headers: {
-                        Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                .delete(
+                    `/api/v1/products/${this.product.post_id}/delete`,
+                    {
+                        headers: {
+                            Authorization: `JWT ${this.$store.state.tokenAccess}`,
+                        },
                     },
-                })
+                    { withCredentials: true }
+                )
                 .then((deletedProductResponse) => {
                     console.log(deletedProductResponse);
                 })
