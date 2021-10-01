@@ -118,17 +118,9 @@ export default createStore({
         },
         saveTokenAccessState(state, access) {
             state.tokenAccess = access;
-            localStorage.setItem(
-                "tokenAccess",
-                JSON.stringify(state.tokenAccess)
-            );
         },
         saveTokenRefreshState(state, refresh) {
             state.tokenRefresh = refresh;
-            localStorage.setItem(
-                "tokenRefresh",
-                JSON.stringify(state.tokenRefresh)
-            );
         },
         localStorageSavedCurrentUser(state) {
             if (localStorage.getItem("currentUser")) {
