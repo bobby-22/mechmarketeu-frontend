@@ -21,7 +21,7 @@ export default {
         refreshTokens() {
             djangoAPI
                 .post(
-                    "/api/v1/accounts/token/refresh",
+                    "/api/v1/accounts/token/refresh/",
                     { token_refresh: this.$store.state.tokenRefresh },
                     { withCredentials: true }
                 )
