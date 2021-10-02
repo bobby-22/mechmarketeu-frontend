@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const djangoAPI = axios.create({
-    baseURL: "https://api.mechmarket.eu/",
+    baseURL: "https://mechmarketeu.herokuapp.com/",
 });
 
 export { djangoAPI };
