@@ -33,15 +33,11 @@ export default {
     methods: {
         getUserProducts() {
             djangoAPI
-                .get(
-                    "/api/v1/accounts/profile/",
-                    {
-                        headers: {
-                            Authorization: `JWT ${this.$store.state.tokenAccess}`,
-                        },
+                .get("/api/v1/accounts/profile/", {
+                    headers: {
+                        Authorization: `JWT ${this.$store.state.tokenAccess}`,
                     },
-                    { withCredentials: true }
-                )
+                })
                 .then((profileResponse) => {
                     console.log(profileResponse);
                     this.products = profileResponse.data;

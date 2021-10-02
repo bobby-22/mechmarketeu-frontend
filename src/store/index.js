@@ -97,30 +97,38 @@ export default createStore({
                 JSON.stringify(state.authenticated)
             );
         },
-        // localStorageSavedTokens(state) {
-        //     if (localStorage.getItem("tokenAccess")) {
-        //         state.tokenAccess = JSON.parse(
-        //             localStorage.getItem("tokenAccess")
-        //         );
-        //         state.tokenRefresh = JSON.parse(
-        //             localStorage.getItem("tokenRefresh")
-        //         );
-        //     } else {
-        //         localStorage.setItem(
-        //             "tokenAccess",
-        //             JSON.stringify(state.tokenAccess)
-        //         );
-        //         localStorage.setItem(
-        //             "tokenRefresh",
-        //             JSON.stringify(state.tokenRefresh)
-        //         );
-        //     }
-        // },
+        localStorageSavedTokens(state) {
+            if (localStorage.getItem("tokenAccess")) {
+                state.tokenAccess = JSON.parse(
+                    localStorage.getItem("tokenAccess")
+                );
+                state.tokenRefresh = JSON.parse(
+                    localStorage.getItem("tokenRefresh")
+                );
+            } else {
+                localStorage.setItem(
+                    "tokenAccess",
+                    JSON.stringify(state.tokenAccess)
+                );
+                localStorage.setItem(
+                    "tokenRefresh",
+                    JSON.stringify(state.tokenRefresh)
+                );
+            }
+        },
         saveTokenAccessState(state, access) {
             state.tokenAccess = access;
+            localStorage.setItem(
+                "tokenAccess",
+                JSON.stringify(state.tokenAccess)
+            );
         },
         saveTokenRefreshState(state, refresh) {
             state.tokenRefresh = refresh;
+            localStorage.setItem(
+                "tokenRefresh",
+                JSON.stringify(state.tokenRefresh)
+            );
         },
         localStorageSavedCurrentUser(state) {
             if (localStorage.getItem("currentUser")) {

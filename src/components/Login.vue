@@ -83,15 +83,15 @@ export default {
                     console.log(loginResponse);
                     this.$store.commit(
                         "saveTokenAccessState",
-                        loginResponse.data.access_token
+                        loginResponse.data.access
                     );
                     this.$store.commit(
                         "saveTokenRefreshState",
-                        loginResponse.data.refresh_token
+                        loginResponse.data.refresh
                     );
                     this.$store.commit(
                         "saveCurrentUserState",
-                        loginResponse.data.user.username
+                        loginResponse.data.username
                     );
                     this.$store.commit("authenticate");
                     this.$router.push("/");

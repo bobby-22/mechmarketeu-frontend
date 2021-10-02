@@ -291,7 +291,6 @@ export default {
                             Authorization: `JWT ${this.$store.state.tokenAccess}`,
                         },
                     },
-                    { withCredentials: true }
                 )
                 .then((reviewedUserResponse) => {
                     console.log(reviewedUserResponse);

@@ -386,8 +386,7 @@ export default {
                         headers: {
                             Authorization: `JWT ${this.$store.state.tokenAccess}`,
                         },
-                    },
-                    { withCredentials: true }
+                    }
                 )
                 .then((updatedProductResponse) => {
                     console.log(updatedProductResponse);
@@ -434,16 +433,11 @@ export default {
                 images.append("images", this.images[i]);
             }
             djangoAPI
-                .post(
-                    "/api/v1/images/",
-                    images,
-                    {
-                        headers: {
-                            Authorization: `JWT ${this.$store.state.tokenAccess}`,
-                        },
+                .post("/api/v1/images/", images, {
+                    headers: {
+                        Authorization: `JWT ${this.$store.state.tokenAccess}`,
                     },
-                    { withCredentials: true }
-                )
+                })
                 .then((createdImagesResponse) => {
                     console.log(createdImagesResponse);
                     this.$router.push(
@@ -479,7 +473,6 @@ export default {
                             Authorization: `JWT ${this.$store.state.tokenAccess}`,
                         },
                     },
-                    { withCredentials: true }
                 )
                 .then((deletedImagesResponse) => {
                     console.log(deletedImagesResponse);

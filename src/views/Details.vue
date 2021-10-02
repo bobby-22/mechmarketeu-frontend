@@ -265,8 +265,7 @@ export default {
                         headers: {
                             Authorization: `JWT ${this.$store.state.tokenAccess}`,
                         },
-                    },
-                    { withCredentials: true }
+                    }
                 )
                 .then((contactedUserResponse) => {
                     console.log(contactedUserResponse);
