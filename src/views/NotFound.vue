@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1 class="title">Page not found</h1>
-        <p>Are you sure you entered the right path?</p>
+        <p>Are you sure you entered the right?</p>
     </div>
 </template>
 
