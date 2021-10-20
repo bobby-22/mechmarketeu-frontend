@@ -308,7 +308,7 @@ img:hover {
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.5);
     color: #f2f2f2;
-    border-bottom-left-radius: 10x;
+    border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     font-size: 20px;
     padding: 15px;
