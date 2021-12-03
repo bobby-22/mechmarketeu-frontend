@@ -3,8 +3,8 @@
         <div class="footer-content">
             <div class="content">
                 <p>
-                    Have any improvements or found a bug? Let me know at one of
-                    these places &#128578;
+                    Have any improvements or found a bug? Let me know below
+                    &#128578;
                 </p>
                 <div class="modalActivate" style="display: inline">
                     <i v-on:click="modalBoolean = true" class="fas fa-at"></i>
@@ -84,12 +84,6 @@
                         ></button>
                     </div>
                 </div>
-                <a href="https://www.reddit.com/message/compose/?to=bobby--22">
-                    <i class="fab fa-reddit"></i>
-                </a>
-                <a href="https://github.com/bobby-22/mechmarketeu/issues/new">
-                    <i class="fab fa-github"></i>
-                </a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -196,14 +190,8 @@ footer {
     margin-bottom: 15px;
     padding-bottom: 15px;
 }
-.fas.fa-at,
-.fab.fa-reddit,
-.fab.fa-github {
+.fas.fa-at {
     font-size: 25px;
-}
-.fab.fa-reddit {
-    margin-left: 10px;
-    margin-right: 10px;
 }
 .footer-bottom {
     display: flex;
